@@ -1,0 +1,606 @@
+<html>
+<head>
+    <title>Users</title>
+    <style>
+        header a{
+            text-decoration: none;
+        }
+
+        header{
+            padding: 0 20px;
+            background-color: #33383c;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #brand {
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        #brand a{
+            color: white;
+        }
+        #brand a span{
+            color: darkorange;
+        }
+
+        header ul {
+            list-style: none;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        header ul a {
+            color: white;
+        }
+
+        header ul li {
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        header ul li:hover {
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+
+        #signup a {
+            color: #ff3860;
+        }
+
+        #login a {
+            color: black;
+        }
+
+        #hamburger-icon {
+            margin: auto 0;
+            display: none;
+            cursor: pointer;
+        }
+
+        #hamburger-icon div {
+            width: 35px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .open .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            height: calc(100vh - 50px);
+            width: 100%;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 10px;
+        }
+
+        html{
+            overflow-x: hidden;
+            scroll-padding-top: 6rem;
+            scroll-behavior: smooth;
+            font-size: 62.5%;
+        }
+
+        body{
+            height: 200rem;
+            margin: 0;
+        }
+
+        .home .content h3{
+            font-size: 6.5rem;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            text-shadow: 0 .3rem .5rem black;
+        }
+
+        .home .video-container video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .heading span{
+            font-size: 3.5rem;
+            background: rgba(255,155,0,.2);
+            color: cornflowerblue;
+            border-radius: .5rem;
+            padding: .2rem 1rem;
+        }
+
+
+        .home .content p{
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            padding: .5rem 0;
+        }
+
+        .btn{
+            display: inline-block;
+            background: cornflowerblue;
+            color: #FFFFFF;
+            padding: .6rem 3rem;
+            cursor: pointer;
+            font-size: 1.7rem;
+        }
+
+        section{
+            padding: 2rem 9%;
+        }
+
+
+        .book .row .img img{
+            width: 100%;
+            height: 500px;
+        }
+
+        .book .row form{
+            flex: 1 1 40rem;
+            padding: 2rem;
+            box-shadow: 0 1rem 2rem rgba(0,0,0,.1);
+            border-radius: .5rem;
+        }
+
+
+        .book .row form .inputBox input{
+            width: 100%;
+            padding: 1rem;
+            border: .1rem solid rgba(0,0,0,.1);
+            font-size: 1.7rem;
+            color: #33383c;
+            text-transform: none;
+        }
+
+        .book .row form .inputBox h3{
+            font-size: 2rem;
+            padding: 1rem 0;
+            color: #666;
+        }
+
+
+        .tours .box-container .box img{
+            height: 25rem;
+            width: 100%;
+            object-fit: cover;
+        }
+
+
+        .tours .box-container .box .content h3{
+            font-size: 2rem;
+            color: #33383c;
+        }
+
+
+
+        .tours .box-container .box .content p{
+            font-size: 1.7rem;
+            color: #666666;
+            padding: 1rem 0;
+        }
+
+        .tours .box-container .box .content .price span{
+            color: #666666;
+            font-size: 1.5rem;
+            text-decoration: line-through;
+        }
+
+        nav .container-fluid a{
+            font-size: 170%;
+        }
+    </style>
+</head>
+<body onload="AdminChecker">
+
+<header>
+    <div id="brand">
+        <a href="#" style="font-size: 160%; padding-left: 1.5rem;">Dem<span>AL</span></a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html" style="font-size: 160%;">Home</a></li>
+            <li><a href="NewsGeneral.html" style="font-size: 160%;">News</a></li>
+            <li><a href="booking.html" style="font-size: 160%;">Booking</a></li>
+            <li><a href="#" style="font-size: 160%;">Hacks&Blogs</a></li>
+            <li><a href="contacts.html" style="font-size: 160%;">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <ul class="mobile-menu">
+            <li><a href="#" style="font-size: 160%;">Home</a></li>
+            <li><a href="NewsGeneral.html" style="font-size: 160%;">News</a></li>
+            <li><a href="booking.html" style="font-size: 160%;">Booking</a></li>
+            <li><a href="#" style="font-size: 160%;">Hacks&Blogs</a></li>
+            <li><a href="contacts.html" style="font-size: 160%;">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+
+
+
+<h2>List of users</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>User</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%users.forEach(users=>{%>
+        <tr>
+            <td id="username"><%=users.username %></td>
+            <td><%=users.city %></td>
+            <td><%=users.email %></td>
+            <td><a href="/user/delete/<%=users.username%>">delete</a></td>
+            <td><a href="/user/edit/<%=users.username%>">edit</a></td>
+
+        </tr>
+        <%})
+        %>
+        <tbody>
+    </table>
+</div>
+<div class="editBtn">
+    <button><a href="/user/add">Add user</a></button>
+    <button><a href="/logout">Log out</a></button>
+</div>
+
+</body>
+<style>
+    *{
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    body{
+        font-family: Helvetica;
+        -webkit-font-smoothing: antialiased;
+        background: white;
+    }
+    h2{
+        text-align: center;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: black;
+        padding: 30px 0;
+    }
+
+    /* Table Styles */
+
+    .table-wrapper{
+        margin: 10px 70px 70px;
+        box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    }
+
+    .fl-table {
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: normal;
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
+        white-space: nowrap;
+        background-color: white;
+    }
+
+    .fl-table td, .fl-table th {
+        text-align: center;
+        padding: 8px;
+    }
+
+    .fl-table td {
+        border-right: 1px solid #f8f8f8;
+        font-size: 12px;
+    }
+
+    .fl-table thead th {
+        color: #ffffff;
+        background: #4784b2;
+    }
+
+
+    .fl-table thead th:nth-child(odd) {
+        color: #ffffff;
+        background: #324960;
+    }
+
+    .fl-table tr:nth-child(even) {
+        background: #F8F8F8;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 767px) {
+        .fl-table {
+            display: block;
+            width: 100%;
+        }
+        .table-wrapper:before{
+            content: "Scroll horizontally >";
+            display: block;
+            text-align: right;
+            font-size: 11px;
+            color: white;
+            padding: 0 0 10px;
+        }
+        .fl-table thead, .fl-table tbody, .fl-table thead th {
+            display: block;
+        }
+        .fl-table thead th:last-child{
+            border-bottom: none;
+        }
+        .fl-table thead {
+            float: left;
+        }
+        .fl-table tbody {
+            width: auto;
+            position: relative;
+            overflow-x: auto;
+        }
+        .fl-table td, .fl-table th {
+            padding: 20px .625em .625em .625em;
+            height: 60px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 120px;
+            font-size: 13px;
+            text-overflow: ellipsis;
+        }
+        .fl-table thead th {
+            text-align: left;
+            border-bottom: 1px solid #f7f7f9;
+        }
+        .fl-table tbody tr {
+            display: table-cell;
+        }
+        .fl-table tbody tr:nth-child(odd) {
+            background: none;
+        }
+        .fl-table tr:nth-child(even) {
+            background: transparent;
+        }
+        .fl-table tr td:nth-child(odd) {
+            background: #F8F8F8;
+            border-right: 1px solid #E6E4E4;
+        }
+        .fl-table tr td:nth-child(even) {
+            border-right: 1px solid #E6E4E4;
+        }
+        .fl-table tbody td {
+            display: block;
+            text-align: center;
+        }
+    }
+</style>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <title>Users</title>
+</head>
+<body>
+<div class="main">
+    <div class="userTable">
+<h1>All Users</h1>
+    <table class="content-table">
+        <thead>
+<tr>
+<th>User</th>
+<th>City</th>
+<th>Email</th>
+<th>Delete</th>
+<th>Edit</th>
+</tr>
+        </thead>
+        <tbody><%users.forEach(users=>{%>
+    <tr>
+        <td id="username"><%=users.username %></td>
+        <td><%=users.city %></td>
+        <td><%=users.email %></td>
+        <td><a href="/user/delete/<%=users.username%>">delete</a></td>
+        <td><a href="/user/edit/<%=users.username%>">edit</a></td>
+
+    </tr>
+        <%})
+        %>
+        </tbody>
+    </table>
+    </div>
+    <div class="editBtn">
+        <button><a href="/user/add">Add user</a></button>
+        <button><a href="/logout">Log out</a></button>
+    </div>
+</div>
+</div>
+</body>
+<style>
+    * {
+        font-family: sans-serif;
+    }
+    .userTable{
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .userTable h1{
+        font-size: 32px;
+        font-weight: 500;
+    }
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .content-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+    }
+.content-table a{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+    }
+
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+
+    .content-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    }
+    .editBtn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .editBtn button {
+        font-weight: 400;
+        font-size: 20px;
+        background-color: #009879;
+        color: white;
+        border-radius: 5px;
+        margin: 10px;
+    }
+    .editBtn button a{
+        font-weight: 400;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+    }
+    .editBtn button:hover{
+        font-weight: 400;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+        background-color:#006A54;
+    }
+    .content-table a{
+    text-decoration: none;
+    color: black;
+    background-color: #f3f3f3;
+        font-size: 0.9em;
+        min-width: 400px;
+        font-weight: 400;
+}
+    .main{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+</style>
+</html>

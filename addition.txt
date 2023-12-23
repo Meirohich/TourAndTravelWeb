@@ -1,0 +1,10 @@
+mongodb+srv://rik_programmist:programmist05042003@cluster0.zgmtxcc.mongodb.net/booking?retryWrites=true&w=majority
+
+mongodb+srv://Meirohich:Meiroha_03@cluster0.2unx8.mongodb.net/Demal_db?retryWrites = true&w = majority
+
+onload="lastVisit()"
+
+
+
+
+MONGODB_URI="mongodb+srv://rik_programmist:programmist05042003@cluster0.zgmtxcc.mongodb.net/booking?retryWrites=true&w=majority"
